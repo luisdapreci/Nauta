@@ -46,7 +46,5 @@ The design separates standard operational execution from importer-specific learn
 
 ## 🌐 Quick Start — Viewing the Interactive Presentation
 
-To explore the visual design dashboard:
-
-1. Open [`docs/index.html`](./docs/index.html) in your browser.
+1. Visit [https://luisdapreci.github.io/Nauta/](https://luisdapreci.github.io/Nauta/) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
 2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
