@@ -44,9 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    { threshold: 0.08 }
+    { threshold: 0, rootMargin: '50px 0px 0px 0px' }
   );
   fadeEls.forEach((el) => fadeObs.observe(el));
+
+  // Reveal initial target if page loaded with URL hash
+  if (window.location.hash) {
+    const initialId = window.location.hash.slice(1);
+    const initialTarget = document.getElementById(initialId);
+    if (initialTarget) {
+      const section = initialTarget.closest('.fade-in') || initialTarget;
+      if (section.classList.contains('fade-in')) {
+        section.classList.add('visible');
+      }
+    }
+  }
 
   /* ------------------------------------------
      Mobile menu toggle
@@ -77,6 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = link.getAttribute('href').slice(1);
       const target = document.getElementById(id);
       if (target) {
+        const section = target.closest('.fade-in') || target;
+        if (section.classList.contains('fade-in')) {
+          section.classList.add('visible');
+        }
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         history.replaceState(null, null, `#${id}`);
       }
