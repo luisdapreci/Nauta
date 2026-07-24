@@ -38,9 +38,9 @@ The design separates standard operational execution from importer-specific learn
 
 | Path / File | Description |
 | :--- | :--- |
-| 📄 [`SOLUTION_DRAFT.md`](./SOLUTION_DRAFT.md) | **Luis David Preciado's full design submission**, detailing system architecture, pipeline stages, edge cases, and end-to-end email walkthrough. |
+| 📄 [`SOLUTION.md`](./SOLUTION.md) | **Luis David Preciado's full design submission**, detailing system architecture, pipeline stages, edge cases, and end-to-end email walkthrough. |
 | 📋 [`CANDIDATE_CASE.md`](./CANDIDATE_CASE.md) | Original Nauta recruiting case specification detailing requirements and constraints. |
-| 🌐 [`site/`](./site/) | Interactive Web Presentation ([`index.html`](./site/index.html)) visually demonstrating the architecture and data flows. |
+| 🌐 [`docs/`](./docs/) | Interactive Web Presentation ([`index.html`](./docs/index.html)) visually demonstrating the architecture and data flows. |
 
 ---
 
@@ -48,5 +48,5 @@ The design separates standard operational execution from importer-specific learn
 
 To explore the visual design dashboard:
 
-1. Open [`site/index.html`](./site/index.html) in your browser.
+1. Open [`docs/index.html`](./docs/index.html) in your browser.
 2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
