@@ -1,20 +1,24 @@
 # 🚢 Nauta — The Data-Entry Brain for Logistics
 
-> **An end-to-end system design for autonomous, intelligent email and document ingestion in supply chain & logistics operations.**
+> **System Design & Recruiting Case Solution by Luis David Preciado**
+> 
+> *An end-to-end architectural solution for autonomous, intelligent email and document ingestion in supply chain & logistics operations.*
 
 ---
 
 ## 📌 Overview
 
+This repository contains **Luis David Preciado's candidate case solution** for the **Nauta System Design Exercise: "The Data-Entry Brain for Logistics"**.
+
 In global logistics, operations inboxes receive a constant stream of unstructured emails, multi-document PDF attachments, spreadsheets (`.xlsx`), and status updates from suppliers, freight forwarders, and maritime carriers. 
 
-**Nauta's Data-Entry Brain** replaces manual data entry by reading incoming inbox communications, parsing complex multi-page documents, resolving entities (orders, containers, invoices, bills of lading), applying custom importer rules, and driving structured record updates in Nauta with high precision and human-in-the-loop confidence routing.
+This design presents a robust, scalable system that replaces manual data entry by reading incoming inbox communications, parsing complex multi-page documents, resolving entities (orders, containers, invoices, bills of lading), applying custom importer rules, and driving structured record updates in Nauta with high precision and human-in-the-loop confidence routing.
 
 ---
 
 ## 🏗️ Architecture Highlights
 
-The system separates standard operational execution from importer-specific learning:
+The design separates standard operational execution from importer-specific learning:
 
 * **The Spine (6-Stage Execution Pipeline)**:
   1. **Ingestion & Deconstruction** — Email splitting, attachment unpacking, and document decomposition.
@@ -34,15 +38,15 @@ The system separates standard operational execution from importer-specific learn
 
 | Path / File | Description |
 | :--- | :--- |
-| 📄 [`SOLUTION_DRAFT.md`](./SOLUTION_DRAFT.md) | Comprehensive system design document detailing architecture, pipeline stages, edge cases, and end-to-end walkthroughs. |
-| 📋 [`CANDIDATE_CASE.md`](./CANDIDATE_CASE.md) | Problem specification detailing logistics ingestion challenges and constraints. |
-| 🌐 [`site/`](./site/) | Interactive Web Presentation ([`index.html`](./site/index.html)) for exploring the architecture and data flows visually. |
+| 📄 [`SOLUTION_DRAFT.md`](./SOLUTION_DRAFT.md) | **Luis David Preciado's full design submission**, detailing system architecture, pipeline stages, edge cases, and end-to-end email walkthrough. |
+| 📋 [`CANDIDATE_CASE.md`](./CANDIDATE_CASE.md) | Original Nauta recruiting case specification detailing requirements and constraints. |
+| 🌐 [`site/`](./site/) | Interactive Web Presentation ([`index.html`](./site/index.html)) visually demonstrating the architecture and data flows. |
 
 ---
 
 ## 🌐 Quick Start — Viewing the Interactive Presentation
 
-To explore the architecture and interactive diagrams:
+To explore the visual design dashboard:
 
 1. Open [`site/index.html`](./site/index.html) in your browser.
-2. Navigate through the pipeline stages, Importer Memory mechanics, and running email walkthrough.
+2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
