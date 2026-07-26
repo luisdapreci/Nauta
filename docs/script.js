@@ -99,4 +99,64 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.innerWidth <= 768) closeMenu();
     });
   });
+
+  /* ------------------------------------------
+     Pipeline stage click → scroll to stage card
+     ------------------------------------------ */
+  const pipelineStages = document.querySelectorAll('.pipeline-stage[data-target]');
+  const stageCards = document.querySelectorAll('.stage-card');
+
+  pipelineStages.forEach((stage) => {
+    stage.addEventListener('click', () => {
+      const targetId = stage.getAttribute('data-target');
+      const targetCard = document.getElementById(targetId);
+
+      if (targetCard) {
+        // Remove active from all pipeline stages, add to clicked
+        pipelineStages.forEach((s) => s.classList.remove('active'));
+        stage.classList.add('active');
+
+        // Remove active highlight from all stage cards, add to target
+        stageCards.forEach((c) => c.classList.remove('stage-active'));
+        targetCard.classList.add('stage-active');
+
+        // Ensure the parent section is visible (fade-in)
+        const parentSection = targetCard.closest('.fade-in');
+        if (parentSection && !parentSection.classList.contains('visible')) {
+          parentSection.classList.add('visible');
+        }
+
+        // Smooth scroll to the stage card
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ------------------------------------------
+     Stage card scroll-spy — highlight pipeline
+     stage as user scrolls through stage cards
+     ------------------------------------------ */
+  const stageSpyOptions = {
+    root: null,
+    rootMargin: '-25% 0px -65% 0px',
+    threshold: 0,
+  };
+
+  const stageScrollSpy = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const cardId = entry.target.id;
+        pipelineStages.forEach((stage) => {
+          const isMatch = stage.getAttribute('data-target') === cardId;
+          stage.classList.toggle('active', isMatch);
+        });
+
+        // Also highlight the card
+        stageCards.forEach((c) => c.classList.remove('stage-active'));
+        entry.target.classList.add('stage-active');
+      }
+    });
+  }, stageSpyOptions);
+
+  stageCards.forEach((card) => stageScrollSpy.observe(card));
 });
