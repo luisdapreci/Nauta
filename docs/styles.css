@@ -1118,3 +1118,270 @@ footer {
 
   .pipeline-stages { gap: 0; }
 }
+
+/* =============================================
+   INTERACTIVE DIAGRAM & MODAL POPUP
+   ============================================= */
+.diagram-container {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.diagram-container::after {
+  content: '🔍 Click to expand & navigate';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  background: rgba(0, 212, 170, 0.1);
+  border: 1px solid rgba(0, 212, 170, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity var(--ease-fast), transform var(--ease-fast), background var(--ease-fast);
+}
+
+.diagram-container:hover::after {
+  opacity: 1;
+  transform: translateY(-2px);
+  background: rgba(0, 212, 170, 0.2);
+}
+
+.diagram-container .mermaid svg {
+  transition: transform var(--ease-fast);
+}
+
+.diagram-container:hover .mermaid svg {
+  transform: scale(1.01);
+}
+
+/* Modal styling */
+body.modal-open {
+  overflow: hidden !important;
+}
+
+.diagram-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
+}
+
+.diagram-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.diagram-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 23, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.diagram-modal-content {
+  position: relative;
+  z-index: 1;
+  width: 94vw;
+  height: 92vh;
+  max-width: 1400px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), var(--accent-glow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diagram-modal.is-active .diagram-modal-content {
+  transform: scale(1);
+}
+
+.diagram-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.diagram-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.modal-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  background: rgba(0, 212, 170, 0.12);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.diagram-modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.diagram-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 36px;
+  padding: 0 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+
+.modal-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.modal-btn-close {
+  padding: 0 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  margin-left: 0.5rem;
+}
+
+.modal-btn-close:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fff;
+}
+
+.modal-zoom-level {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 48px;
+  text-align: center;
+}
+
+.diagram-modal-viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #0d111a;
+  cursor: grab;
+  user-select: none;
+}
+
+.diagram-modal-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.diagram-modal-svg-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.diagram-modal-svg-wrapper svg {
+  max-width: none !important;
+  max-height: none !important;
+  display: block;
+}
+
+.diagram-modal-footer {
+  padding: 0.6rem 1.5rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.modal-hint kbd {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .diagram-modal-content {
+    width: 98vw;
+    height: 96vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .diagram-modal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .diagram-modal-title-group h3 {
+    font-size: 0.95rem;
+  }
+
+  .modal-hint {
+    font-size: 0.7rem;
+  }
+
+  .diagram-container::after {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.45rem;
+  }
+}
+
