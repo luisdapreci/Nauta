@@ -1,7 +1,7 @@
 # 🚢 Nauta — The Data-Entry Brain for Logistics
 
 > **System Design & Recruiting Case Solution by Luis David Preciado**
-> 
+>
 > *An end-to-end architectural solution for autonomous, intelligent email and document ingestion in supply chain & logistics operations.*
 
 ---
@@ -10,7 +10,7 @@
 
 This repository contains **Luis David Preciado's candidate case solution** for the **Nauta System Design Exercise: "The Data-Entry Brain for Logistics"**.
 
-In global logistics, operations inboxes receive a constant stream of unstructured emails, multi-document PDF attachments, spreadsheets (`.xlsx`), and status updates from suppliers, freight forwarders, and maritime carriers. 
+In global logistics, operations inboxes receive a constant stream of unstructured emails, multi-document PDF attachments, spreadsheets (`.xlsx`), and status updates from suppliers, freight forwarders, and maritime carriers.
 
 This design presents a robust, scalable system that replaces manual data entry by reading incoming inbox communications, parsing complex multi-page documents, resolving entities (orders, containers, invoices, bills of lading), applying custom importer rules, and driving structured record updates in Nauta with high precision and human-in-the-loop confidence routing.
 
@@ -46,5 +46,5 @@ The design separates standard operational execution from importer-specific learn
 
 ## 🌐 Quick Start — Viewing the Interactive Presentation
 
-1. Visit ([https://luisdapreci.github.io/NautaCase/](https://luisdapreci.github.io/NautaCase/))(https://luisdapreci.github.io/Nauta/) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
+1. Visit ([https://luisdapreci.github.io/NautaCase/](https://luisdapreci.github.io/NautaCase/)) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
 2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
