@@ -6,6 +6,15 @@
 
 ---
 
+## 🌐 Interactive Presentation & Quick Links
+
+[![Live Demo](https://img.shields.io/badge/Live%20Presentation-Interactive%20Deck-6366f1?style=for-the-badge&logo=githubpages&logoColor=white)](https://luisdapreci.github.io/NautaCase/)
+
+* 🚀 **[Launch Live Interactive Presentation](https://luisdapreci.github.io/NautaCase/)** *(or open [`docs/index.html`](./docs/index.html) locally)* — Visual walkthrough of system architecture, 6-stage execution pipeline, Importer Memory, and running email trace demo.
+* 📄 **[Read In-Depth Written Solution (`SOLUTION.md`)](./SOLUTION.md)** — Full technical blueprint detailing entity resolution graphs, confidence scoring algorithms, edge case handling, database schemas, and infrastructure trade-offs.
+
+---
+
 ## 📌 Overview
 
 This repository contains **Luis David Preciado's candidate case solution** for the **Nauta System Design Exercise: "The Data-Entry Brain for Logistics"**.
@@ -38,13 +47,8 @@ The design separates standard operational execution from importer-specific learn
 
 | Path / File | Description |
 | :--- | :--- |
+| 🌐 [`docs/`](./docs/) | **Interactive Web Presentation** ([`index.html`](./docs/index.html)) visually demonstrating the architecture and data flows. |
 | 📄 [`SOLUTION.md`](./SOLUTION.md) | **Luis David Preciado's full design submission**, detailing system architecture, pipeline stages, edge cases, and end-to-end email walkthrough. |
 | 📋 [`CANDIDATE_CASE.md`](./CANDIDATE_CASE.md) | Original Nauta recruiting case specification detailing requirements and constraints. |
-| 🌐 [`docs/`](./docs/) | Interactive Web Presentation ([`index.html`](./docs/index.html)) visually demonstrating the architecture and data flows. |
+| 🎙️ [`GUIA_PRESENTADOR.md`](./GUIA_PRESENTADOR.md) | Speaker presentation guide and narrative structure for presenting the solution. |
 
----
-
-## 🌐 Quick Start — Viewing the Interactive Presentation
-
-1. Visit ([https://luisdapreci.github.io/NautaCase/](https://luisdapreci.github.io/NautaCase/)) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
-2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
