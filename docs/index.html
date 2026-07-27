@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Data-Entry Brain for Logistics — Presentation</title>
-  <meta name="description" content="An interactive walkthrough of the Nauta automated data-entry system: 6-stage pipeline, Importer Memory, and continuous Learning Loops.">
+  <meta name="description"
+    content="An interactive walkthrough of the Nauta automated data-entry system: 6-stage pipeline, Importer Memory, and continuous Learning Loops.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -34,12 +38,13 @@
     });
   </script>
 </head>
+
 <body>
 
   <!-- Mobile Menu Toggle -->
   <button id="menu-toggle" aria-label="Toggle Navigation">
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
   <div id="sidebar-overlay"></div>
@@ -47,8 +52,9 @@
   <!-- Sidebar Navigation — major sections only -->
   <aside id="sidebar">
     <div class="sidebar-brand">
-      <h2>Nauta Design</h2>
+      <h2>Nauta Case Solution Design</h2>
       <span>Interactive Walkthrough</span>
+      <span>by Luis David Preciado</span>
     </div>
     <nav>
       <a href="#hero">Overview</a>
@@ -72,7 +78,8 @@
         <div class="hero-content">
           <span class="hero-badge">System Design Walkthrough</span>
           <h1>The Data-Entry Brain for <span>Logistics</span></h1>
-          <p class="hero-sub">A 6-stage pipeline with per-importer memory that turns unstructured email into verified Nauta records — knowing when to act and when to ask.</p>
+          <p class="hero-sub">A 6-stage pipeline with per-importer memory that turns unstructured email into verified
+            Nauta records — knowing when to act and when to ask.</p>
 
           <div class="kpi-strip">
             <div class="kpi">
@@ -100,19 +107,26 @@
         <h2><span class="section-number">📧</span> Running Scenario</h2>
         <div class="callout">
           <div class="callout-label">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
             We follow one email through the entire system
           </div>
           <div class="scenario-grid">
             <div class="scenario-field"><span class="scenario-key">Importer</span> Acme Imports</div>
             <div class="scenario-field"><span class="scenario-key">From</span> Pacific Logistics Ltd.</div>
-            <div class="scenario-field"><span class="scenario-key">Subject</span> Shipment Update – Container MSCU3847291</div>
+            <div class="scenario-field"><span class="scenario-key">Subject</span> Shipment Update – Container
+              MSCU3847291</div>
             <div class="scenario-field"><span class="scenario-key">Body</span> Revised ETA: August 14th</div>
-            <div class="scenario-field scenario-field-wide"><span class="scenario-key">Attachment</span> 1 PDF containing 3 merged documents: invoice (Shenzhen Bright Co.), packing list, bill of lading</div>
+            <div class="scenario-field scenario-field-wide"><span class="scenario-key">Attachment</span> 1 PDF
+              containing 3 merged documents: invoice (Shenzhen Bright Co.), packing list, bill of lading</div>
           </div>
           <div class="scenario-complications">
-            <div class="complication">⚡ PO <code>AI-2024-0892</code> exists in Nauta — but the supplier name doesn't match ("Shenzhen Bright Co." vs "Bright Electronics Shenzhen")</div>
-            <div class="complication">⚡ Importer rule: for Pacific Logistics emails, the ETA in the email body overrides the bill of lading date</div>
+            <div class="complication">⚡ PO <code>AI-2024-0892</code> exists in Nauta — but the supplier name doesn't
+              match ("Shenzhen Bright Co." vs "Bright Electronics Shenzhen")</div>
+            <div class="complication">⚡ Importer rule: for Pacific Logistics emails, the ETA in the email body overrides
+              the bill of lading date</div>
           </div>
         </div>
       </section>
@@ -120,27 +134,32 @@
       <!-- ==================== THE REAL PROBLEM ==================== -->
       <section id="problem" class="fade-in">
         <h2><span class="section-number">1</span> The Real Problem</h2>
-        <p>The first instinct is to treat this as document extraction. That framing is wrong. Extraction is a commodity — LLMs already do it well. The hard part is the three layers that surround it:</p>
+        <p>The first instinct is to treat this as document extraction. That framing is wrong. Extraction is a commodity
+          — LLMs already do it well. The hard part is the three layers that surround it:</p>
 
         <div class="three-layers">
           <div class="layer-card">
             <div class="layer-icon">🧠</div>
             <h4>Interpretation</h4>
-            <p>A "Purchase Order" might actually be a Proforma Invoice. The ETA on the BoL might be the wrong ETA. Every importer is their own schema.</p>
+            <p>A "Purchase Order" might actually be a Proforma Invoice. The ETA on the BoL might be the wrong ETA. Every
+              importer is their own schema.</p>
           </div>
           <div class="layer-card">
             <div class="layer-icon">🆔</div>
             <h4>Identity</h4>
-            <p>"Shenzhen Bright Co." must resolve to the right Nauta supplier ID. Wrong resolution silently corrupts records the whole team trusts.</p>
+            <p>"Shenzhen Bright Co." must resolve to the right Nauta supplier ID. Wrong resolution silently corrupts
+              records the whole team trusts.</p>
           </div>
           <div class="layer-card">
             <div class="layer-icon">🛡️</div>
             <h4>Confidence</h4>
-            <p>A wrong automated record is worse than doing nothing. The system must know when to act and when to escalate.</p>
+            <p>A wrong automated record is worse than doing nothing. The system must know when to act and when to
+              escalate.</p>
           </div>
         </div>
 
-        <p>The architecture is a response to these three layers, not to the extraction task. Extraction is one stage among six.</p>
+        <p>The architecture is a response to these three layers, not to the extraction task. Extraction is one stage
+          among six.</p>
 
         <h3>Mapping the 7 Challenges</h3>
         <p>The case brief raises 7 specific challenges. Here is where each is addressed:</p>
@@ -149,37 +168,44 @@
           <div class="challenge-row">
             <span class="challenge-num">1</span>
             <span class="challenge-name">Ingest anything</span>
-            <span class="challenge-answer">Stage 2 (Parse) — deterministic, per-format handlers with document boundary detection</span>
+            <span class="challenge-answer">Stage 2 (Parse) — deterministic, per-format handlers with document boundary
+              detection</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">2</span>
             <span class="challenge-name">Illogical importer rules</span>
-            <span class="challenge-answer">Importer Memory — per-importer rules injected at Classify, Extract; override layer is auditable</span>
+            <span class="challenge-answer">Importer Memory — per-importer rules injected at Classify, Extract; override
+              layer is auditable</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">3</span>
             <span class="challenge-name">Entity named 10 ways</span>
-            <span class="challenge-answer">Stage 5 (Reconcile) — alias map → fuzzy match → context disambiguation; never guess</span>
+            <span class="challenge-answer">Stage 5 (Reconcile) — alias map → fuzzy match → context disambiguation; never
+              guess</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">4</span>
             <span class="challenge-name">Being wrong is expensive</span>
-            <span class="challenge-answer">Weakest-link confidence model + per-action thresholds + structured human review</span>
+            <span class="challenge-answer">Weakest-link confidence model + per-action thresholds + structured human
+              review</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">5</span>
             <span class="challenge-name">Rules aren't given to you</span>
-            <span class="challenge-answer">Learning Loop — corrections → examples → clusters → proposed rules → approved rules</span>
+            <span class="challenge-answer">Learning Loop — corrections → examples → clusters → proposed rules → approved
+              rules</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">6</span>
             <span class="challenge-name">Untrusted input</span>
-            <span class="challenge-answer">Data/control plane separation + structured output contracts + LLM-free write boundary</span>
+            <span class="challenge-answer">Data/control plane separation + structured output contracts + LLM-free write
+              boundary</span>
           </div>
           <div class="challenge-row">
             <span class="challenge-num">7</span>
             <span class="challenge-name">Scale</span>
-            <span class="challenge-answer">Stateless workers, per-importer queues, tenant isolation, cost ∝ complexity not volume</span>
+            <span class="challenge-answer">Stateless workers, per-importer queues, tenant isolation, cost ∝ complexity
+              not volume</span>
           </div>
         </div>
       </section>
@@ -187,14 +213,24 @@
       <!-- ==================== ARCHITECTURE ==================== -->
       <section id="architecture" class="fade-in">
         <h2><span class="section-number">2</span> Architecture: Spine + Brain</h2>
-        <p>The system has two parts: a <strong>spine</strong> (6-stage processing pipeline) and a <strong>brain</strong> (Importer Memory + Learning Loop). The brain shapes every decision the spine makes; the spine's outputs feed back into the brain.</p>
+        <p>The system has two parts: a <strong>spine</strong> (6-stage processing pipeline) and a <strong>brain</strong>
+          (Importer Memory + Learning Loop). The brain shapes every decision the spine makes; the spine's outputs feed
+          back into the brain.</p>
 
         <details class="expand-detail">
           <summary>Why this decomposition?</summary>
           <div class="detail-content">
-            <p><strong>Why not one agent per document type?</strong> Classification must happen before you know the type. Importer rules cut across types. Reconciliation is type-independent. A hybrid stage pipeline handles all three naturally — type-specialized sub-agents are scoped to the stages where type knowledge matters (Extraction).</p>
-            <p><strong>Why separate spine from brain?</strong> The pipeline (spine) is the same shape for every importer — but every importer's rules, aliases, and corrections are different. Separating them means adding a new importer is a data operation (create an empty memory, seed rules, connect inbox) — no redeployment, no retraining.</p>
-            <p><strong>Why not fine-tune per importer?</strong> Fine-tuning is slow (hours to retrain), opaque (can't inspect learned rules), and inflexible to format changes. RAG + explicit rules gives immediate effect, auditability, and adaptability — decisive for a system that must explain its decisions.</p>
+            <p><strong>Why not one agent per document type?</strong> Classification must happen before you know the
+              type. Importer rules cut across types. Reconciliation is type-independent. A hybrid stage pipeline handles
+              all three naturally — type-specialized sub-agents are scoped to the stages where type knowledge matters
+              (Extraction).</p>
+            <p><strong>Why separate spine from brain?</strong> The pipeline (spine) is the same shape for every importer
+              — but every importer's rules, aliases, and corrections are different. Separating them means adding a new
+              importer is a data operation (create an empty memory, seed rules, connect inbox) — no redeployment, no
+              retraining.</p>
+            <p><strong>Why not fine-tune per importer?</strong> Fine-tuning is slow (hours to retrain), opaque (can't
+              inspect learned rules), and inflexible to format changes. RAG + explicit rules gives immediate effect,
+              auditability, and adaptability — decisive for a system that must explain its decisions.</p>
           </div>
         </details>
 
@@ -239,17 +275,27 @@ graph TB
         <!-- 3.1 Intake -->
         <article id="stage-intake" class="stage-card">
           <h3><span class="stage-badge">01</span> Intake & Sandboxing</h3>
-          <p>Extract email metadata (sender, importer ID) <em>before</em> any AI touches the content. Query Importer Memory for sender-level rules — if one fires (e.g., "ignore this forwarder"), exit immediately at near-zero cost. Otherwise, package the email into a <strong>sandboxed payload</strong> with strict data/control plane separation to defend against prompt injection.</p>
+          <p>Extract email metadata (sender, importer ID) <em>before</em> any AI touches the content. Query Importer
+            Memory for sender-level rules — if one fires (e.g., "ignore this forwarder"), exit immediately at near-zero
+            cost. Otherwise, package the email into a <strong>sandboxed payload</strong> with strict data/control plane
+            separation to defend against prompt injection.</p>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> Pacific Logistics Ltd. → no ignore rule. Context note found: <em>"ETA in email body takes precedence over BoL date."</em> Attached as trusted context. Email body + PDF sandboxed as untrusted.
+            <strong>🔍 Scenario:</strong> Pacific Logistics Ltd. → no ignore rule. Context note found: <em>"ETA in email
+              body takes precedence over BoL date."</em> Attached as trusted context. Email body + PDF sandboxed as
+            untrusted.
           </div>
 
           <details class="expand-detail">
             <summary>Key design details</summary>
             <div class="detail-content">
-              <p>Email content is always placed in a tagged <code>&lt;CONTENT&gt;</code> data block — never in the instruction position of any prompt. An email containing <em>"ignore your previous instructions"</em> is just data being analyzed, not commands being followed.</p>
-              <p>The system can only take 4 actions: <code>CREATE</code>, <code>UPDATE</code>, <code>IGNORE</code>, <code>ESCALATE</code>. This allowlist is enforced by a deterministic, LLM-free execution layer. The LLM recommends; a validator executes.</p>
+              <p>Email content is always placed in a tagged <code>&lt;CONTENT&gt;</code> data block — never in the
+                instruction position of any prompt. An email containing <em>"ignore your previous instructions"</em> is
+                just data being analyzed, not commands being followed.</p>
+              <p>The system can only take 4 actions: <code>CREATE</code>, <code>UPDATE</code>, <code>IGNORE</code>,
+                <code>ESCALATE</code>. This allowlist is enforced by a deterministic, LLM-free execution layer. The LLM
+                recommends; a validator executes.
+              </p>
             </div>
           </details>
         </article>
@@ -257,17 +303,24 @@ graph TB
         <!-- 3.2 Parse -->
         <article id="stage-parse" class="stage-card">
           <h3><span class="stage-badge">02</span> Parsing</h3>
-          <p>Turn raw files into legible content chunks using <strong>deterministic, LLM-free handlers</strong> — one per file type (clean PDF, scanned/OCR, spreadsheet, Word, ZIP). The key challenge is <strong>document boundary detection</strong>: a single PDF might contain 3 merged documents. Layout analysis identifies where one ends and another begins.</p>
+          <p>Turn raw files into legible content chunks using <strong>deterministic, LLM-free handlers</strong> — one
+            per file type (clean PDF, scanned/OCR, spreadsheet, Word, ZIP). The key challenge is <strong>document
+              boundary detection</strong>: a single PDF might contain 3 merged documents. Layout analysis identifies
+            where one ends and another begins.</p>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> PDF split into 4 chunks — email body (conf 1.0), invoice pp.1–2 (0.97), packing list p.3 (0.95), BoL pp.4–5 (0.96). All clean digital, no OCR degradation.
+            <strong>🔍 Scenario:</strong> PDF split into 4 chunks — email body (conf 1.0), invoice pp.1–2 (0.97),
+            packing list p.3 (0.95), BoL pp.4–5 (0.96). All clean digital, no OCR degradation.
           </div>
 
           <details class="expand-detail">
             <summary>Key design details</summary>
             <div class="detail-content">
-              <p>Every chunk is tagged with provenance: source file, page range, format type, and a confidence score. Low OCR confidence propagates as a penalty — it doesn't block processing, but makes escalation more likely downstream.</p>
-              <p>LLMs are deliberately excluded here. Format handling is a solved engineering problem and determinism matters: the same file should always produce the same chunks.</p>
+              <p>Every chunk is tagged with provenance: source file, page range, format type, and a confidence score.
+                Low OCR confidence propagates as a penalty — it doesn't block processing, but makes escalation more
+                likely downstream.</p>
+              <p>LLMs are deliberately excluded here. Format handling is a solved engineering problem and determinism
+                matters: the same file should always produce the same chunks.</p>
             </div>
           </details>
         </article>
@@ -275,17 +328,27 @@ graph TB
         <!-- 3.3 Classify -->
         <article id="stage-classify" class="stage-card">
           <h3><span class="stage-badge">03</span> Classification</h3>
-          <p>A <strong>classifier sub-agent</strong> labels each chunk (<code>INVOICE</code>, <code>PACKING_LIST</code>, <code>BILL_OF_LADING</code>, etc.) with confidence scores. Crucially, the importer's override rules are injected first — a "Purchase Order" might be reclassified as a Proforma Invoice for this importer. When a rule fires, the output is flagged <code>importer_rule_applied: true</code> for full auditability.</p>
+          <p>A <strong>classifier sub-agent</strong> labels each chunk (<code>INVOICE</code>, <code>PACKING_LIST</code>,
+            <code>BILL_OF_LADING</code>, etc.) with confidence scores. Crucially, the importer's override rules are
+            injected first — a "Purchase Order" might be reclassified as a Proforma Invoice for this importer. When a
+            rule fires, the output is flagged <code>importer_rule_applied: true</code> for full auditability.
+          </p>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> INVOICE (0.94) · PACKING_LIST (0.91) · BILL_OF_LADING (0.96) · EMAIL_BODY_WITH_ETA (0.88). No overrides needed. The ETA-precedence rule is tagged to the email body chunk for use at Extraction.
+            <strong>🔍 Scenario:</strong> INVOICE (0.94) · PACKING_LIST (0.91) · BILL_OF_LADING (0.96) ·
+            EMAIL_BODY_WITH_ETA (0.88). No overrides needed. The ETA-precedence rule is tagged to the email body chunk
+            for use at Extraction.
           </div>
         </article>
 
         <!-- 3.4 Extract -->
         <article id="stage-extract" class="stage-card">
           <h3><span class="stage-badge">04</span> Extraction</h3>
-          <p>Each typed chunk goes to a <strong>specialized sub-agent</strong> — <code>InvoiceExtractor</code>, <code>BoLExtractor</code>, etc. — not a generalist. Every field carries its own confidence score. Field-level importer rules fire here: extract faithfully first, then apply rules as an <strong>auditable override layer</strong>.</p>
+          <p>Each typed chunk goes to a <strong>specialized sub-agent</strong> — <code>InvoiceExtractor</code>,
+            <code>BoLExtractor</code>, etc. — not a generalist. Every field carries its own confidence score.
+            Field-level importer rules fire here: extract faithfully first, then apply rules as an <strong>auditable
+              override layer</strong>.
+          </p>
 
           <div class="diagram-container">
             <div class="diagram-label">Specialized Extractor Sub-Agents</div>
@@ -309,14 +372,21 @@ flowchart TD
           </div>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> InvoiceExtractor → <code>{supplier: "Shenzhen Bright Co.", po: "AI-2024-0892", total: $48,200}</code>. BoLExtractor → ETA <code>2024-08-20</code> <strong>OVERRIDDEN</strong> by email body ETA <code>2024-08-14</code> per importer rule. Both values logged for audit.
+            <strong>🔍 Scenario:</strong> InvoiceExtractor →
+            <code>{supplier: "Shenzhen Bright Co.", po: "AI-2024-0892", total: $48,200}</code>. BoLExtractor → ETA
+            <code>2024-08-20</code> <strong>OVERRIDDEN</strong> by email body ETA <code>2024-08-14</code> per importer
+            rule. Both values logged for audit.
           </div>
         </article>
 
         <!-- 3.5 Reconcile -->
         <article id="stage-reconcile" class="stage-card">
           <h3><span class="stage-badge">05</span> Reconciliation</h3>
-          <p>The most consequential and most dangerous stage. Connect extracted values to the correct Nauta records. The risk is <strong>asymmetric</strong>: failing to resolve is visible (escalate); resolving to the <em>wrong</em> entity silently corrupts records. Design principle: <strong>when in doubt, escalate. Never guess.</strong></p>
+          <p>The most consequential and most dangerous stage. Connect extracted values to the correct Nauta records. The
+            risk is <strong>asymmetric</strong>: failing to resolve is visible (escalate); resolving to the
+            <em>wrong</em> entity silently corrupts records. Design principle: <strong>when in doubt, escalate. Never
+              guess.</strong>
+          </p>
 
           <div class="diagram-container">
             <div class="diagram-label">Entity Reconciliation Sequence</div>
@@ -338,14 +408,19 @@ flowchart TD
           </div>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> "Shenzhen Bright Co." → fuzzy match finds "Bright Electronics Shenzhen" (0.81). Alias map confirms — this pairing was verified by a reviewer 6 weeks ago. Confidence elevated to 0.96. PO and container → exact match. Overall reconciliation: 0.93.
+            <strong>🔍 Scenario:</strong> "Shenzhen Bright Co." → fuzzy match finds "Bright Electronics Shenzhen"
+            (0.81). Alias map confirms — this pairing was verified by a reviewer 6 weeks ago. Confidence elevated to
+            0.96. PO and container → exact match. Overall reconciliation: 0.93.
           </div>
         </article>
 
         <!-- 3.6 Decide -->
         <article id="stage-decide" class="stage-card">
           <h3><span class="stage-badge">06</span> Decision & Routing</h3>
-          <p>Confidence propagates as a <strong>weakest-link function</strong> — each stage can only reduce, never inflate. <code>C_final = min(all stages)</code>. But "confident enough" varies by action type: updating an ETA (low stakes, 0.75 threshold) vs. linking a PO (very high stakes, 0.95 threshold). A single email can produce mixed outcomes — some actions written, others escalated.</p>
+          <p>Confidence propagates as a <strong>weakest-link function</strong> — each stage can only reduce, never
+            inflate. <code>C_final = min(all stages)</code>. But "confident enough" varies by action type: updating an
+            ETA (low stakes, 0.75 threshold) vs. linking a PO (very high stakes, 0.95 threshold). A single email can
+            produce mixed outcomes — some actions written, others escalated.</p>
 
           <div class="diagram-container">
             <div class="diagram-label">Decision & Routing — Per-Action Threshold Evaluation</div>
@@ -377,7 +452,8 @@ flowchart TD
           </div>
 
           <div class="example-inline">
-            <strong>🔍 Scenario:</strong> C_final = 0.93. All three actions clear: UPDATE ETA → Aug 14 ✓ · LINK invoice to PO & supplier #2847 ✓ · CREATE packing list ✓. All logged with full provenance. Email complete.
+            <strong>🔍 Scenario:</strong> C_final = 0.93. All three actions clear: UPDATE ETA → Aug 14 ✓ · LINK invoice
+            to PO & supplier #2847 ✓ · CREATE packing list ✓. All logged with full provenance. Email complete.
           </div>
 
           <details class="expand-detail">
@@ -385,15 +461,49 @@ flowchart TD
             <div class="detail-content">
               <div class="table-wrapper">
                 <table>
-                  <thead><tr><th>Action</th><th>Stakes</th><th>Min. Confidence</th></tr></thead>
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>Stakes</th>
+                      <th>Min. Confidence</th>
+                    </tr>
+                  </thead>
                   <tbody>
-                    <tr><td>Update ETA on a container</td><td>Low, reversible</td><td><strong>0.75</strong> <span class="badge badge-low">Low</span></td></tr>
-                    <tr><td>Ignore an email</td><td>Medium</td><td><strong>0.80</strong> <span class="badge badge-medium">Medium</span></td></tr>
-                    <tr><td>Create a new supplier</td><td>Medium-High</td><td><strong>0.85</strong> <span class="badge badge-medium">Medium</span></td></tr>
-                    <tr><td>Create a new document record</td><td>Medium</td><td><strong>0.88</strong> <span class="badge badge-medium">Medium</span></td></tr>
-                    <tr><td>Resolve supplier to existing ID</td><td>High</td><td><strong>0.90</strong> <span class="badge badge-high">High</span></td></tr>
-                    <tr><td>Create a new invoice</td><td>High</td><td><strong>0.92</strong> <span class="badge badge-high">High</span></td></tr>
-                    <tr><td>Link PO to a shipment</td><td>Very High</td><td><strong>0.95</strong> <span class="badge badge-very-high">Critical</span></td></tr>
+                    <tr>
+                      <td>Update ETA on a container</td>
+                      <td>Low, reversible</td>
+                      <td><strong>0.75</strong> <span class="badge badge-low">Low</span></td>
+                    </tr>
+                    <tr>
+                      <td>Ignore an email</td>
+                      <td>Medium</td>
+                      <td><strong>0.80</strong> <span class="badge badge-medium">Medium</span></td>
+                    </tr>
+                    <tr>
+                      <td>Create a new supplier</td>
+                      <td>Medium-High</td>
+                      <td><strong>0.85</strong> <span class="badge badge-medium">Medium</span></td>
+                    </tr>
+                    <tr>
+                      <td>Create a new document record</td>
+                      <td>Medium</td>
+                      <td><strong>0.88</strong> <span class="badge badge-medium">Medium</span></td>
+                    </tr>
+                    <tr>
+                      <td>Resolve supplier to existing ID</td>
+                      <td>High</td>
+                      <td><strong>0.90</strong> <span class="badge badge-high">High</span></td>
+                    </tr>
+                    <tr>
+                      <td>Create a new invoice</td>
+                      <td>High</td>
+                      <td><strong>0.92</strong> <span class="badge badge-high">High</span></td>
+                    </tr>
+                    <tr>
+                      <td>Link PO to a shipment</td>
+                      <td>Very High</td>
+                      <td><strong>0.95</strong> <span class="badge badge-very-high">Critical</span></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -406,13 +516,16 @@ flowchart TD
       <!-- ==================== IMPORTER MEMORY ==================== -->
       <section id="memory" class="fade-in">
         <h2><span class="section-number">4</span> Importer Memory: The Brain</h2>
-        <p>Without Importer Memory, the pipeline is a generic document extractor. With it, the system encodes each importer's accumulated, illogical, specific reality. It's a per-importer store with <strong>three layers</strong>, each with a different adaptation speed:</p>
+        <p>Without Importer Memory, the pipeline is a generic document extractor. With it, the system encodes each
+          importer's accumulated, illogical, specific reality. It's a per-importer store with <strong>three
+            layers</strong>, each with a different adaptation speed:</p>
 
         <div class="three-layers">
           <div class="layer-card">
             <div class="layer-icon">📋</div>
             <h4>Explicit Rules</h4>
-            <p>Human-approved behavioral rules. Injected into agent prompts. Fires at Intake, Classification, Extraction.</p>
+            <p>Human-approved behavioral rules. Injected into agent prompts. Fires at Intake, Classification,
+              Extraction.</p>
             <div class="layer-speed"><span class="badge badge-medium">After approval</span></div>
           </div>
           <div class="layer-card">
@@ -456,9 +569,13 @@ graph TB
           <div class="detail-content">
             <p>On day one, Memory is empty. Three mechanisms address this:</p>
             <ul>
-              <li><strong>Conservative bootstrapping</strong> — escalate nearly everything. This generates the highest-value corrections because reviewers are correcting raw, unguided output.</li>
-              <li><strong>Seed rules via onboarding</strong> — let the importer pre-configure known conventions (sender exclusions, supplier aliases, field overrides).</li>
-              <li><strong>Borrowing from similar importers</strong> — transfer general rules flagged as <em>provisional</em>, requiring confirmation before becoming permanent.</li>
+              <li><strong>Conservative bootstrapping</strong> — escalate nearly everything. This generates the
+                highest-value corrections because reviewers are correcting raw, unguided output.</li>
+              <li><strong>Seed rules via onboarding</strong> — let the importer pre-configure known conventions (sender
+                exclusions, supplier aliases, field overrides).</li>
+              <li><strong>Borrowing from similar importers</strong> — transfer general rules flagged as
+                <em>provisional</em>, requiring confirmation before becoming permanent.
+              </li>
             </ul>
             <p>Most importers reach stable operation within a few hundred emails.</p>
           </div>
@@ -468,17 +585,23 @@ graph TB
       <!-- ==================== LEARNING LOOP ==================== -->
       <section id="learning" class="fade-in">
         <h2><span class="section-number">5</span> The Learning Loop</h2>
-        <p>The rules aren't given to you. They live in reviewers' heads. Every correction is an implicit rule. The Learning Loop converts that signal into explicit knowledge — without requiring reviewers to author rules.</p>
+        <p>The rules aren't given to you. They live in reviewers' heads. Every correction is an implicit rule. The
+          Learning Loop converts that signal into explicit knowledge — without requiring reviewers to author rules.</p>
 
         <div class="two-col-cards">
           <div class="info-card">
             <h4>Loop A: Corrections → Rules</h4>
-            <p>Each correction is embedded and retrievable <strong>immediately</strong> as a few-shot example. When similar corrections cluster (≥5), the <strong>Rule Synthesizer Agent</strong> proposes an explicit rule in plain language. A reviewer approves or rejects it.</p>
-            <p class="flywheel-text">Corrections → examples → clusters → proposed rules → approved rules → reduced escalations</p>
+            <p>Each correction is embedded and retrievable <strong>immediately</strong> as a few-shot example. When
+              similar corrections cluster (≥5), the <strong>Rule Synthesizer Agent</strong> proposes an explicit rule in
+              plain language. A reviewer approves or rejects it.</p>
+            <p class="flywheel-text">Corrections → examples → clusters → proposed rules → approved rules → reduced
+              escalations</p>
           </div>
           <div class="info-card">
             <h4>Loop B: Threshold Tuning</h4>
-            <p>Tracks <strong>automation errors</strong> (threshold too low) vs. <strong>unnecessary escalations</strong> (threshold too high) per importer, per action type. Adjusts thresholds incrementally over weeks. Result: caution level calibrated to each importer's actual risk tolerance.</p>
+            <p>Tracks <strong>automation errors</strong> (threshold too low) vs. <strong>unnecessary
+                escalations</strong> (threshold too high) per importer, per action type. Adjusts thresholds
+              incrementally over weeks. Result: caution level calibrated to each importer's actual risk tolerance.</p>
           </div>
         </div>
 
@@ -518,25 +641,37 @@ flowchart TD
           <div class="principle-card">
             <div class="principle-icon">🔒</div>
             <h4>Prompt Injection Defense</h4>
-            <p><strong>Data/control plane separation</strong> — email content is always in tagged data blocks, never in instruction position. <strong>Structured output contracts</strong> — agents produce typed JSON, no free-text commands. <strong>LLM-free write boundary</strong> — only 4 actions allowed, validated by deterministic code.</p>
+            <p><strong>Data/control plane separation</strong> — email content is always in tagged data blocks, never in
+              instruction position. <strong>Structured output contracts</strong> — agents produce typed JSON, no
+              free-text commands. <strong>LLM-free write boundary</strong> — only 4 actions allowed, validated by
+              deterministic code.</p>
           </div>
 
           <div class="principle-card">
             <div class="principle-icon">⚖️</div>
             <h4>Confidence Model</h4>
-            <p><strong>Weakest-link, not average</strong> — a shaky reconciliation can't be masked by a confident parse. <strong>Per-action thresholds</strong> — risk-appropriate, not one-size-fits-all. <strong>Asymmetric cost</strong> — a wrong record is worse than an unnecessary escalation.</p>
+            <p><strong>Weakest-link, not average</strong> — a shaky reconciliation can't be masked by a confident parse.
+              <strong>Per-action thresholds</strong> — risk-appropriate, not one-size-fits-all. <strong>Asymmetric
+                cost</strong> — a wrong record is worse than an unnecessary escalation.
+            </p>
           </div>
 
           <div class="principle-card">
             <div class="principle-icon">📈</div>
             <h4>Scale Architecture</h4>
-            <p><strong>Event-driven stateless workers</strong> with per-importer queues. <strong>Tenant isolation</strong> — adding an importer is a data operation, no redeployment. <strong>Cost ∝ complexity</strong> — early exits mean cost scales with what's <em>difficult</em>, not what's <em>frequent</em>.</p>
+            <p><strong>Event-driven stateless workers</strong> with per-importer queues. <strong>Tenant
+                isolation</strong> — adding an importer is a data operation, no redeployment. <strong>Cost ∝
+                complexity</strong> — early exits mean cost scales with what's <em>difficult</em>, not what's
+              <em>frequent</em>.
+            </p>
           </div>
 
           <div class="principle-card">
             <div class="principle-icon">👁️</div>
             <h4>Reviewer Experience</h4>
-            <p>Structured review cards with: original email, proposed diff, per-stage confidence breakdown, plain-language escalation reason, and 3 action buttons. Corrections are structured field edits — precisely labeled pairs that the Learning Loop can consume.</p>
+            <p>Structured review cards with: original email, proposed diff, per-stage confidence breakdown,
+              plain-language escalation reason, and 3 action buttons. Corrections are structured field edits — precisely
+              labeled pairs that the Learning Loop can consume.</p>
           </div>
         </div>
 
@@ -549,11 +684,27 @@ flowchart TD
                 <span class="badge badge-medium">Low Alias Match (0.81)</span>
               </div>
               <div class="review-card-body">
-                <div class="field"><div class="field-label">Original Email:</div><div class="field-value">"Shipment Update – Container MSCU3847291" (Pacific Logistics Ltd)</div></div>
-                <div class="field"><div class="field-label">Extracted String:</div><div class="field-value">"Shenzhen Bright Co."</div></div>
-                <div class="field"><div class="field-label">Proposed Match:</div><div class="field-value">Bright Electronics Shenzhen (Supplier ID #2847)</div></div>
-                <div class="field"><div class="field-label">Stage Confidence:</div><div class="field-value">Parsing: 0.97 | Class: 0.94 | Extract: 0.93 | Reconciliation: 0.81</div></div>
-                <div class="field"><div class="field-label">Escalation Reason:</div><div class="field-value">Supplier 'Shenzhen Bright Co.' resolved to 'Bright Electronics Shenzhen' with 0.81 similarity. No prior alias confirmed.</div></div>
+                <div class="field">
+                  <div class="field-label">Original Email:</div>
+                  <div class="field-value">"Shipment Update – Container MSCU3847291" (Pacific Logistics Ltd)</div>
+                </div>
+                <div class="field">
+                  <div class="field-label">Extracted String:</div>
+                  <div class="field-value">"Shenzhen Bright Co."</div>
+                </div>
+                <div class="field">
+                  <div class="field-label">Proposed Match:</div>
+                  <div class="field-value">Bright Electronics Shenzhen (Supplier ID #2847)</div>
+                </div>
+                <div class="field">
+                  <div class="field-label">Stage Confidence:</div>
+                  <div class="field-value">Parsing: 0.97 | Class: 0.94 | Extract: 0.93 | Reconciliation: 0.81</div>
+                </div>
+                <div class="field">
+                  <div class="field-label">Escalation Reason:</div>
+                  <div class="field-value">Supplier 'Shenzhen Bright Co.' resolved to 'Bright Electronics Shenzhen' with
+                    0.81 similarity. No prior alias confirmed.</div>
+                </div>
               </div>
               <div class="review-card-actions">
                 <button class="btn btn-confirm">Confirm Match</button>
@@ -568,24 +719,29 @@ flowchart TD
       <!-- ==================== HONEST ASSESSMENT ==================== -->
       <section id="assessment" class="fade-in">
         <h2><span class="section-number">7</span> Honest Assessment</h2>
-        <p>Describing where a design works is straightforward. The more useful exercise is naming where it breaks and what alternatives were considered.</p>
+        <p>Describing where a design works is straightforward. The more useful exercise is naming where it breaks and
+          what alternatives were considered.</p>
 
         <h3>Where it breaks</h3>
         <div class="limitation">
           <h4>Cold Start is Painful</h4>
-          <p>A new importer escalates nearly everything. Correct behavior, but low initial automation value. No shortcut to a populated memory.</p>
+          <p>A new importer escalates nearly everything. Correct behavior, but low initial automation value. No shortcut
+            to a populated memory.</p>
         </div>
         <div class="limitation">
           <h4>Rule Conflicts Accumulate Silently</h4>
-          <p>As rules grow, two can match the same email with different actions. Conflict-checking for fuzzy natural-language rules is itself a hard problem.</p>
+          <p>As rules grow, two can match the same email with different actions. Conflict-checking for fuzzy
+            natural-language rules is itself a hard problem.</p>
         </div>
         <div class="limitation">
           <h4>Clustering False Positives</h4>
-          <p>Similar-looking corrections with different root causes may produce wrong rule proposals. Human approval is the safety net — but reviewer fatigue is real.</p>
+          <p>Similar-looking corrections with different root causes may produce wrong rule proposals. Human approval is
+            the safety net — but reviewer fatigue is real.</p>
         </div>
         <div class="limitation">
           <h4>Confidence Scores ≠ Ground Truth</h4>
-          <p>LLMs are poorly calibrated — sometimes confidently wrong. The weakest-link model is a conservative buffer, not an elimination of the limitation.</p>
+          <p>LLMs are poorly calibrated — sometimes confidently wrong. The weakest-link model is a conservative buffer,
+            not an elimination of the limitation.</p>
         </div>
 
         <details class="expand-detail">
@@ -593,11 +749,13 @@ flowchart TD
           <div class="detail-content">
             <div class="limitation">
               <h4>Format Shifts Cause Regression</h4>
-              <p>When a supplier changes their invoice template, extraction confidence drops until new examples accumulate. Graceful degradation via escalation, not self-healing.</p>
+              <p>When a supplier changes their invoice template, extraction confidence drops until new examples
+                accumulate. Graceful degradation via escalation, not self-healing.</p>
             </div>
             <div class="limitation">
               <h4>Reviewer Inconsistency Corrupts Learning</h4>
-              <p>Different reviewers making different decisions on similar cases teaches the system incoherently. Reviewer training is a prerequisite.</p>
+              <p>Different reviewers making different decisions on similar cases teaches the system incoherently.
+                Reviewer training is a prerequisite.</p>
             </div>
           </div>
         </details>
@@ -605,15 +763,21 @@ flowchart TD
         <h3>Trade-offs considered</h3>
         <div class="tradeoff">
           <h4>Fine-tuning per importer vs. RAG + explicit rules</h4>
-          <p>Fine-tuning gives deep adaptation but is slow to update, opaque, and inflexible to format changes. RAG + rules gives <strong>immediate effect</strong>, <strong>auditability</strong>, and <strong>adaptability</strong>. The interpretability advantage is decisive.</p>
+          <p>Fine-tuning gives deep adaptation but is slow to update, opaque, and inflexible to format changes. RAG +
+            rules gives <strong>immediate effect</strong>, <strong>auditability</strong>, and
+            <strong>adaptability</strong>. The interpretability advantage is decisive.
+          </p>
         </div>
         <div class="tradeoff">
           <h4>Agent-per-document-type vs. hybrid stage pipeline</h4>
-          <p>Per-type agents fail on three cases: classification must precede type knowledge, importer rules cut across types, and reconciliation is type-independent. The hybrid pipeline handles all three naturally.</p>
+          <p>Per-type agents fail on three cases: classification must precede type knowledge, importer rules cut across
+            types, and reconciliation is type-independent. The hybrid pipeline handles all three naturally.</p>
         </div>
         <div class="tradeoff">
           <h4>Synthesized rules vs. structured templates</h4>
-          <p>Templates are safer and easier to conflict-check but lack expressiveness. The design uses templates where possible (sender exclusions, field overrides) and falls back to synthesized rules for complex patterns, with human approval as the control.</p>
+          <p>Templates are safer and easier to conflict-check but lack expressiveness. The design uses templates where
+            possible (sender exclusions, field overrides) and falls back to synthesized rules for complex patterns, with
+            human approval as the control.</p>
         </div>
       </section>
 
@@ -628,4 +792,5 @@ flowchart TD
   <!-- JS -->
   <script src="script.js"></script>
 </body>
+
 </html>
