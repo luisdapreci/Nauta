@@ -46,5 +46,5 @@ The design separates standard operational execution from importer-specific learn
 
 ## 🌐 Quick Start — Viewing the Interactive Presentation
 
-1. Visit [https://luisdapreci.github.io/Nauta/](https://luisdapreci.github.io/Nauta/) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
+1. Visit [[https://luisdapreci.github.io/NautaCase/](https://luisdapreci.github.io/NautaCase/)](https://luisdapreci.github.io/Nauta/) in your browser (or open [`docs/index.html`](./docs/index.html) locally).
 2. Navigate through the pipeline stages, Importer Memory mechanics, and the running email trace walkthrough.
